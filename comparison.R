@@ -8,7 +8,7 @@ FdNO3_SWAT<- "SWAT outputs"
 
 ##daycent
 FdNO3_daycent <- function(NO3){
-  fdno3= 11000 + (40000+ atan(pi*0.002*(NO3-180)))/pi
+  fdno3= 11000 + (40000* atan(pi*0.002*(NO3-180)))/pi
   return(fdno3)
 }
 
@@ -110,7 +110,7 @@ summa_gather<-gather(summa, key = "model", value = "Fd(t)", -soilT)
 c<-ggplot()+
   geom_line(aes(x=summa_gather$soilT, y=summa_gather$`Fd(t)`, linetype=as.factor(summa_gather$model)))+
   scale_y_continuous(breaks = 1:15)+
-  labs(x="Soil Temperature (°C)", y="Fd(t)", linetype="Model", title = "Soil Temperature")+
+  labs(x="Soil Temperature (Â°C)", y="Fd(t)", linetype="Model", title = "Soil Temperature")+
   theme(#axis.text.x = element_text(size = 11),
         #axis.text.y = element_text(size = 11),
         panel.grid = element_blank(),
@@ -319,7 +319,7 @@ together_gather<-gather(together, key = "model", value = "value", -soilT)
 nb<-ggplot()+
   geom_line(aes(x=together_gather$soilT, y=together_gather$value, linetype=as.factor(together_gather$model),
                 col=as.factor(together_gather$model)), size=0.8)+
-  labs(x="Soil Temperature (°C)", y="Fn(t)", linetype="Model", title = "Soil Temperature", col="Model")+
+  labs(x="Soil Temperature (Â°C)", y="Fn(t)", linetype="Model", title = "Soil Temperature", col="Model")+
   theme(panel.grid = element_blank(),
         panel.background = element_blank(),
         axis.line.x = element_line(arrow = arrow(length = unit(0.1, "inches"))),
