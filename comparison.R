@@ -18,6 +18,7 @@ Daycent<-FdNO3_daycent(NO3)
 a<-ggplot()+
   geom_line(aes(x=NO3, y=Daycent))+
   labs(x="NO3 (ug N g-1)", y="Fd(NO3) (g N ha-1 d-1)", title = "NO3 (Daycent)")+
+  scale_y_continuous(labels = scales::comma)+
   theme(#axis.text.x = element_text(size = 11),
         #axis.text.y = element_text(size = 11),
         panel.grid = element_blank(),
@@ -50,6 +51,7 @@ Daycentc<-FdC_daycent(carbon)
 b<-ggplot()+
   geom_line(aes(x=carbon, y=Daycentc))+
   labs(x="Soil Respiration (kg C ha-1 d-1)", y="Fd(CO2) (g N ha-1 d-1)", title = "Soil Respiration (Daycent)")+
+  scale_y_continuous(labels = scales::comma)+
   theme(#axis.text.x = element_text(size = 11),
         #axis.text.y = element_text(size = 11),
         panel.grid = element_blank(),
